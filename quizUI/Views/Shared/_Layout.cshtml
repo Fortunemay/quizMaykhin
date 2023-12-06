@@ -1,0 +1,138 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - AlphaUI</title>
+
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="~/lib/fontawesome-free-6.2.1/css/all.min.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" asp-append-version="true" />
+
+    <!-- Sweetalert2 style -->
+    <link rel="stylesheet" href="~/lib/sweetalert/css/sweetalert2.min.css" asp-append-version="true" />
+
+    <!-- DataTables -->
+    <link rel="stylesheet" href="~/lib/datatables-bs4/css/dataTables.bootstrap4.min.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/lib/datatables-responsive/css/responsive.bootstrap4.min.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/lib/datatables-buttons/css/buttons.bootstrap4.min.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/lib/icheck-bootstrap/icheck-bootstrap.min.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/lib/select2/dist/css/select2.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/lib/select2/dist/css/select2.min.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/lib/datepicker/datepicker3.css" asp-append-version="true" />
+    <!-- Theme style -->
+    <link rel="stylesheet" href="~/css/adminlte.css" asp-append-version="true" />
+
+</head>
+<body>
+
+    <div id="loading">
+        <div id="loader">
+            <div align="center">
+                <img src="~/dist/images/Loading.gif" class="rounded mx-auto d-block">
+            </div>
+            <div>
+                <p>&nbsp;&nbsp;กรุณารอสักครู่....</p>
+            </div>
+        </div>
+    </div>
+
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container-fluid">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">AlphaUI</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">กำหนดสิทธิ์</a>
+                        </li>                        
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            <!-- Main content -->
+            <section class="content">
+                <div class="container-fluid">
+
+                    @RenderBody()
+
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2566 - Quiz Maykhin.p
+        </div>
+    </footer>
+
+    <!-- Modal -->
+    <div id="frmUser" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true" data-keyboard="false" data-backdrop="static">
+        <div class="modal-dialog modal-lg" role="document">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header bg-primary">
+                    <h4 id="frmTitle" class="no-margin"></h4>
+                </div>
+                <div class="modal-body">
+                    <div id="frmBody" class="col-sm-12 col-xs-12">
+                        <div class="col-sm-12 text-center">
+                            <img src="~/dist/images/Loading.gif" width="100" class="rounded mx-auto d-block" style="margin: auto;position: relative;"><br />กรุณารอสักครู่....
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="col-sm-12 col-xs-12 no-padding" align="right">
+                        <button type="button" id="btnAddnew" class="btn btn-primary" style="width:12%;" > บันทึก</button>
+                        <button type="button" id="btnClose" class="btn btn-danger" data-dismiss="modal" style="width:12%;"> ยกเลิก</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="~/lib/jquery/dist/jquery.min.js" asp-append-version="true"></script>
+    <!-- Bootstrap 4 -->
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js" asp-append-version="true"></script>
+
+    <!-- DataTables  & Plugins -->
+    <script src="~/lib/datatables/jquery.dataTables.min.js" asp-append-version="true"></script>
+    <script src="~/lib/datatables-bs4/js/dataTables.bootstrap4.min.js" asp-append-version="true"></script>
+    <script src="~/lib/datatables-responsive/js/dataTables.responsive.min.js" asp-append-version="true"></script>
+    <script src="~/lib/datatables-responsive/js/responsive.bootstrap4.min.js" asp-append-version="true"></script>
+    <script src="~/lib/datatables-buttons/js/dataTables.buttons.min.js" asp-append-version="true"></script>
+    <script src="~/lib/datatables-buttons/js/buttons.bootstrap4.min.js" asp-append-version="true"></script>
+    <script src="~/lib/jszip/jszip.min.js" asp-append-version="true"></script>
+    <script src="~/lib/pdfmake/pdfmake.min.js" asp-append-version="true"></script>
+    <script src="~/lib/pdfmake/vfs_fonts.js" asp-append-version="true"></script>
+    <script src="~/lib/datatables-buttons/js/buttons.html5.min.js" asp-append-version="true"></script>
+    <script src="~/lib/datatables-buttons/js/buttons.print.min.js" asp-append-version="true"></script>
+    <script src="~/lib/datatables-buttons/js/buttons.colVis.min.js" asp-append-version="true"></script>
+
+    <script src="~/lib/sweetalert/js/sweetalert2.all.min.js" asp-append-version="true"></script>    
+    <script src="~/lib/select2/dist/js/select2.js" asp-append-version="true"></script>
+    <script src="~/lib/select2/dist/js/select2.full.js" asp-append-version="true"></script>
+    <script src="~/lib/select2/dist/js/select2.min.js" asp-append-version="true"></script>
+    <script src="~/lib/datepicker/bootstrap-datepicker.js" asp-append-version="true"></script>
+
+    <script src="~/dist/js/helperjs.js" asp-append-version="true"></script>
+
+    <!-- AdminLTE App -->
+    <script src="~/dist/js/adminlte.min.js" asp-append-version="true"></script>
+
+    <!-- Page specific script -->
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
